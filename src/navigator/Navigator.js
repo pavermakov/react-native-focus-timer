@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { View } from 'react-native';
 import { StoreContext } from '../store';
+import s from './Navigator.styles';
 
 class Navigator extends Component {
   renderScreen = ({ currentScreen }) => {
@@ -9,9 +10,11 @@ class Navigator extends Component {
 
   render() {
     return (
-      <StoreContext.Consumer>
-        {this.renderScreen}
-      </StoreContext.Consumer>
+      <View style={s.container}>
+        <StoreContext.Consumer>
+          {this.renderScreen}
+        </StoreContext.Consumer>
+      </View>
     );
   }
 }

@@ -9,18 +9,16 @@ class App extends Component {
   render() {
     return (
       <Store>
-          <SafeAreaView style={s.container}>
-            <TopBar
-              style={s.topBar}
-              displayText="Focus Timer"
-            />
-            <View style={s.screen}>
-              <Navigator />
-            </View>
-            <TabBar style={s.tabBar}/>
-          </SafeAreaView>
+        <SafeAreaView style={s.container}>
+          <TopBar
+            style={s.topBar}
+            displayText="Focus Timer"
+          />
+          <Navigator style={s.screen} />
+          <TabBar style={s.tabBar}/>
+        </SafeAreaView>
       </Store>
-    )
+    );
   }
 }
 

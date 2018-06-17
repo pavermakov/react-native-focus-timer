@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-class Log extends Component {
+class LogScreen extends Component {
   render() {
     return (
       <View>
@@ -11,4 +11,4 @@ class Log extends Component {
   }
 }
 
-export default Log;
+export default LogScreen;
