@@ -1,18 +1,28 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import s from './TabBarItem.styles';
 
-const TabBarItem = ({ iconType, iconSize = 25, displayText }) => (
-  <View style={s.container}>
-    <Icon
-      style={s.icon}
-      name={iconType}
-      size={iconSize}
-    />
+const TabBarItem = ({ iconType, iconSize = 25, displayText, isLarge = false, onPress }) => {
+  const containerStyles = [s.container];
 
-    <Text style={s.text}>{displayText}</Text>
-  </View>
-);
+  if (isLarge) {
+    containerStyles.push(s.containerLarge);
+  }
+
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <View style={containerStyles}>
+        <Icon
+          style={s.icon}
+          name={iconType}
+          size={iconSize}
+        />
+
+        <Text style={s.text}>{displayText}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 export default TabBarItem;
