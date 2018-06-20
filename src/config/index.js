@@ -1,3 +1,4 @@
 import screens from './screens';
+import constants from './constants';
 
-export { screens };
+export { screens, constants };

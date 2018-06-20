@@ -1,15 +1,15 @@
 import React from 'react';
-import { Timer } from '../screens/Timer';
-import { Log } from '../screens/Log';
+import { TimerScreen } from '../screens/TimerScreen';
+import { LogScreen } from '../screens/LogScreen';
 
 export default {
   timer: {
     title: "Timer",
-    component: <Timer />,
+    component: <TimerScreen />,
   },
   log: {
     title: "Log",
-    component: <Log />,
+    component: <LogScreen />,
   },
   goals: {
     title: "Goals",

@@ -13,7 +13,9 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "jest"
+    "test": "jest",
+    "create:component": "sh scripts/create_component.sh",
+    "create:container": "sh scripts/create_container.sh"
   },
   "jest": {
     "preset": "react-native"
