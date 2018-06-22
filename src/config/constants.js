@@ -18,4 +18,11 @@ export default {
     LONG_BREAK: 'ios-restaurant',
     STOP_WATCH: 'ios-stopwatch-outline',
   },
+
+  TIMERS_LENGTH: {
+    FOCUS: 25 * 60 * 1000,
+    SHORT_BREAK: 5 * 60 * 1000,
+    LONG_BREAK: 30 * 60 * 1000,
+    STOP_WATCH: 0,
+  },
 };

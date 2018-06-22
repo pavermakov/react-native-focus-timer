@@ -5,6 +5,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'flex-start',
+    opacity: 1,
+  },
+  containerHidden: {
+    opacity: 0,
   },
 });
 
