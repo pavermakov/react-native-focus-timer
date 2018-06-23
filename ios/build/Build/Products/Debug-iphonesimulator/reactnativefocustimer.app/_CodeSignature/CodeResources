@@ -111,7 +111,7 @@
 		</data>
 		<key>PlugIns/reactnativefocustimerTests.xctest/reactnativefocustimerTests</key>
 		<data>
-		UfHSbr3bFeomlmbtcpUrlmSqqWA=
+		bxgQJI1ftmEuVdor4j9vWmjIZu0=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -120,6 +120,10 @@
 		<key>Zocial.ttf</key>
 		<data>
 		C9pZx7zT05J94EfgkYdaRCi/0as=
+		</data>
+		<key>school_bell.wav</key>
+		<data>
+		RO0/xLQqMwSNa6rNeowd3QkUFk0=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -383,11 +387,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UfHSbr3bFeomlmbtcpUrlmSqqWA=
+			bxgQJI1ftmEuVdor4j9vWmjIZu0=
 			</data>
 			<key>hash2</key>
 			<data>
-			OpEeCDJ5bXOr+b0vHpLe7UUJ7xKkcRscdJ48HOU5ubk=
+			qw9QcE/Z8q7H68k8fSrqYACKAeK+xOband+5AQnDRNk=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
@@ -410,6 +414,17 @@
 			<key>hash2</key>
 			<data>
 			17EKHr4YMOWi8I9JA7moDiwZEsDdL3O5P88r+DIhZgI=
+			</data>
+		</dict>
+		<key>school_bell.wav</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RO0/xLQqMwSNa6rNeowd3QkUFk0=
+			</data>
+			<key>hash2</key>
+			<data>
+			OM7HkNxZNcI0ZuUB+WevU9a3v8/R0xzRAtb8ENPU+gg=
 			</data>
 		</dict>
 	</dict>

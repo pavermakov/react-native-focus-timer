@@ -15,8 +15,8 @@ export default {
     stopWatch: {
       start: 'Start measure length of your session',
       process: 'Stopwatch in progress',
-      finish: 'Finished. Take a break...'
     },
+    finishTimer: 'Finished. Take a break...',
     cancelTimer: 'Aborted. IT happens, don\'t worry and try it again!',
   },
 };
