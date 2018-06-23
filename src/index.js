@@ -4,7 +4,7 @@ import { Store } from './store';
 import { Navigator } from './navigator';
 import { TabBar } from './containers/TabBar';
 import { TopBar } from './components/TopBar';
-import { initSounds } from './config';
+import { initSounds, texts } from './config';
 
 class App extends Component {
   componentWillMount() {
@@ -17,7 +17,7 @@ class App extends Component {
         <SafeAreaView style={s.container}>
           <TopBar
             style={s.topBar}
-            displayText="Focus Timer"
+            displayText={texts.appTitle}
           />
           <Navigator style={s.screen} />
           <TabBar style={s.tabBar}/>

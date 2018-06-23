@@ -6,7 +6,7 @@ import { Trigger } from '../../components/Trigger';
 import { ToolBar } from '../../components/ToolBar';
 import { ToolBarItem } from '../../components/ToolBarItem';
 import { Row } from '../../components/Row';
-import { constants } from '../../config';
+import { constants, texts } from '../../config';
 import { formatTime, getMinutes } from '../../helpers';
 import s from './Timer.styles';
 
@@ -47,7 +47,7 @@ class Timer extends Component {
           <Row>
             <ToolBar isHidden={isRunning}>
               <ToolBarItem
-                bottomText="Focus"
+                bottomText={texts.modes.focus.title}
                 icon={constants.TOOLBAR_ICONS.FOCUS}
                 isActive={currentMode === constants.TIMER_MODES.FOCUS}
                 topText={`${getMinutes(constants.TIMERS_LENGTH.FOCUS)} min`}
@@ -55,7 +55,7 @@ class Timer extends Component {
               />
 
               <ToolBarItem
-                bottomText="Short break"
+                bottomText={texts.modes.shortBreak.title}
                 icon={constants.TOOLBAR_ICONS.SHORT_BREAK}
                 isActive={currentMode === constants.TIMER_MODES.SHORT_BREAK}
                 topText={`${getMinutes(constants.TIMERS_LENGTH.SHORT_BREAK)} min`}
@@ -63,7 +63,7 @@ class Timer extends Component {
               />
 
               <ToolBarItem
-                bottomText="Long break"
+                bottomText={texts.modes.longBreak.title}
                 icon={constants.TOOLBAR_ICONS.LONG_BREAK}
                 isActive={currentMode === constants.TIMER_MODES.LONG_BREAK}
                 topText={`${getMinutes(constants.TIMERS_LENGTH.LONG_BREAK)} min`}
@@ -71,7 +71,7 @@ class Timer extends Component {
               />
 
               <ToolBarItem
-                bottomText="Stop-watch"
+                bottomText={texts.modes.stopWatch.title}
                 icon={constants.TOOLBAR_ICONS.STOP_WATCH}
                 isActive={currentMode === constants.TIMER_MODES.STOP_WATCH}
                 topText="&infin; min"

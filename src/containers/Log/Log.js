@@ -19,25 +19,25 @@ class Log extends Component {
         <Row>
           <ToolBar>
             <ToolBarItem
-              bottomText="Focus"
+              bottomText={texts.modes.focus.title}
               icon={constants.TOOLBAR_ICONS.FOCUS}
               topText={focusTotal}
             />
 
             <ToolBarItem
-              bottomText="Short break"
+              bottomText={texts.modes.shortBreak.title}
               icon={constants.TOOLBAR_ICONS.SHORT_BREAK}
               topText={shortBreakTotal}
             />
 
             <ToolBarItem
-              bottomText="Long break"
+              bottomText={texts.modes.longBreak.title}
               icon={constants.TOOLBAR_ICONS.LONG_BREAK}
               topText={longBreakTotal}
             />
 
             <ToolBarItem
-              bottomText="Stop-watch"
+              bottomText={texts.modes.stopWatch.title}
               icon={constants.TOOLBAR_ICONS.STOP_WATCH}
               topText={stopWatchTotal}
             />

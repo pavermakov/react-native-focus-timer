@@ -19,6 +19,12 @@ export default {
     STOP_WATCH: 'ios-stopwatch-outline',
   },
 
+  TABBAR_ICONS: {
+    FOCUS: 'ios-time-outline',
+    LOG: 'ios-book-outline',
+    GOAL: 'ios-school-outline',
+  },
+
   TIMERS_LENGTH: {
     FOCUS: 25 * 60 * 1000,
     SHORT_BREAK: 5 * 60 * 1000,
@@ -30,5 +36,9 @@ export default {
 
   STORAGE: {
     LOGS: 'focus_timer_logs',
+  },
+
+  IMAGES: {
+    CONSTRUCTION: require('../assets/construction.png'),
   },
 };
