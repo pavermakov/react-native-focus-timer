@@ -27,4 +27,8 @@ export default {
   },
 
   ONE_SECOND: 1000,
+
+  STORAGE: {
+    LOGS: 'focus_timer_logs',
+  },
 };

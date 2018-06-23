@@ -19,4 +19,5 @@ export default {
     finishTimer: 'Finished. Take a break...',
     cancelTimer: 'Aborted. IT happens, don\'t worry and try it again!',
   },
+  progressLog: 'Fully completed cycles',
 };

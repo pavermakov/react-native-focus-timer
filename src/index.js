@@ -4,7 +4,7 @@ import { Store } from './store';
 import { Navigator } from './navigator';
 import { TabBar } from './containers/TabBar';
 import { TopBar } from './components/TopBar';
-import { initSounds, sounds } from './config';
+import { initSounds } from './config';
 
 class App extends Component {
   componentWillMount() {
