@@ -25,4 +25,6 @@ export default {
     LONG_BREAK: 30 * 60 * 1000,
     STOP_WATCH: 0,
   },
+
+  ONE_SECOND: 1000,
 };
