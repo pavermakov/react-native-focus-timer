@@ -16,8 +16,13 @@ const timerProps = {
 };
 
 const StoreContext = React.createContext(initialState);
+const timerIntervalId = null;
 
 class Store extends Component {
+  componentWillUnmount() {
+    this.clearTimer();
+  }
+
   setCurrentScreen = (nextScreen) => {
     if (this.state.currentScreen.title === nextScreen.title) {
       return;
@@ -33,6 +38,9 @@ class Store extends Component {
           ...prevState.timerProps,
           currentMode: nextMode,
           triggerIcon: constants.TRIGGER_ICONS.PLAY,
+          isReady: true,
+          isRunning: false,
+          isStopped: false,
         },
       };
     }, this.initNextTimer);
@@ -141,7 +149,7 @@ class Store extends Component {
             timerTitle: nextTitle,
           },
         };
-      });
+      }, this.startTimer);
 
       return;
     }
@@ -158,7 +166,7 @@ class Store extends Component {
             timerTitle: nextTitle,
           },
         };
-      });
+      }, this.clearTimer);
 
       return;
     }
@@ -175,21 +183,57 @@ class Store extends Component {
             timerTitle: nextTitle,
           },
         };
-      });
+      }, this.initNextTimer);
 
       return;
     }
   };
 
-  // resetTriggerState = () => {
-  //   this.setState((prevState) => {
-  //     return {
-  //       ...prevState.timerProps,
-        
+  startTimer = () => {
+    this.clearTimer();
+    timerIntervalId = setInterval(this.tickTimer, constants.ONE_SECOND);
+  };
 
-  //     }
-  //   })
-  // };
+  tickTimer = () => {
+    const { currentMode } = this.state.timerProps;
+    const direction = currentMode === constants.TIMER_MODES.STOP_WATCH ? 1 : -1;
+
+    this.setState((prevState) => {
+      return {
+        timerProps: {
+          ...prevState.timerProps,
+          timerValue: prevState.timerProps.timerValue + (constants.ONE_SECOND * direction),
+        },
+      };
+    }, this.checkTimer);
+  };
+
+  checkTimer = () => {
+    if (this.state.timerProps.timerValue > 0) {
+      return;
+    }
+
+    this.clearTimer();
+
+    // if accidentally went below 0, set it to 0
+    this.setState((prevState) => {
+      return {
+        timerProps: {
+          ...prevState.timerProps,
+          timerValue: 0,
+        },
+      };
+    }, this.finishTimer);
+  };
+
+  finishTimer = () => {
+    // make a noise
+    this.setNextTriggerState();
+  };
+
+  clearTimer = () => {
+    clearInterval(timerIntervalId);
+  };
 
   state = {
     ...initialState,
