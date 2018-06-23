@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import { screens, constants, texts, sounds } from '../config';
 
 const initialState = {
@@ -16,13 +17,36 @@ const timerProps = {
   timerValue: constants.TIMERS_LENGTH.FOCUS,
 };
 
+const logProps = {
+  focusTotal: 0,
+  shortBreakTotal: 0,
+  longBreakTotal: 0,
+  stopWatchTotal: 0,
+};
+
 const StoreContext = React.createContext(initialState);
 const timerIntervalId = null;
 
 class Store extends Component {
+  componentDidMount() {
+    this.readExistingLogs();
+  }
+
   componentWillUnmount() {
     this.clearTimerInterval();
   }
+
+  readExistingLogs = () => {
+    AsyncStorage.getItem(constants.STORAGE.LOGS)
+      .then((data) => {
+        if (!data || Object.keys(data) === 0) {
+          return;
+        }
+
+        this.setState({ logProps: JSON.parse(data) });
+      })
+      .catch(console.log)
+  };
 
   setCurrentScreen = (nextScreen) => {
     if (this.state.currentScreen.title === nextScreen.title) {
@@ -216,7 +240,13 @@ class Store extends Component {
             timerTitle: nextTitle,
           },
         };
-      }, this.clearTimerInterval);
+      }, () => {
+        if (this.state.timerProps.currentMode === constants.TIMER_MODES.STOP_WATCH) {
+          this.updateLogs();
+        }
+
+        this.clearTimerInterval();
+      });
 
       return;
     }
@@ -278,12 +308,66 @@ class Store extends Component {
           isReady: false,
           isRunning: false,
           isStopped: true,
-          triggerIcon: constants.TRIGGER_ICONS.STOP,
+          triggerIcon: constants.TRIGGER_ICONS.RESTART,
           timerValue: 0,
           timerTitle: texts.modes.finishTimer,
         },
       };
-    });
+    }, this.updateLogs);
+  };
+
+  updateLogs = () => {
+    const { currentMode } = this.state.timerProps;
+    const { FOCUS, SHORT_BREAK, LONG_BREAK, STOP_WATCH } = constants.TIMER_MODES;
+
+    if (currentMode === FOCUS) {
+      return this.setState((prevState) => {
+        return {
+          logProps: {
+            ...prevState.logProps,
+            focusTotal: prevState.logProps.focusTotal + 1,
+          },
+        };
+      }, this.saveLogs);
+    }
+
+    if (currentMode === SHORT_BREAK) {
+      return this.setState((prevState) => {
+        return {
+          logProps: {
+            ...prevState.logProps,
+            shortBreakTotal: prevState.logProps.shortBreakTotal + 1,
+          },
+        };
+      }, this.saveLogs);
+    }
+
+    if (currentMode === LONG_BREAK) {
+      return this.setState((prevState) => {
+        return {
+          logProps: {
+            ...prevState.logProps,
+            longBreakTotal: prevState.logProps.longBreakTotal + 1,
+          },
+        };
+      }, this.saveLogs);
+    }
+
+    if (currentMode === STOP_WATCH) {
+      return this.setState((prevState) => {
+        return {
+          logProps: {
+            ...prevState.logProps,
+            stopWatchTotal: prevState.logProps.stopWatchTotal + 1,
+          },
+        };
+      }, this.saveLogs);
+    }
+  };
+
+  saveLogs = () => {
+    AsyncStorage.setItem(constants.STORAGE.LOGS, JSON.stringify(this.state.logProps))
+      .catch(console.log);
   };
 
   clearTimerInterval = () => {
@@ -297,6 +381,7 @@ class Store extends Component {
       setTimerMode: this.setTimerMode,
       setNextTriggerState: this.setNextTriggerState,
     },
+    logProps,
     setCurrentScreen: this.setCurrentScreen,
   };
 
