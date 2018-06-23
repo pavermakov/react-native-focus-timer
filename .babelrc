@@ -5,15 +5,7 @@
   "env": {
     "development": {
       "plugins": [
-        "transform-react-jsx-source",
-        [
-          "module-resolver",
-          {
-            "alias": {
-              "root": ["./src"]
-            }
-          }
-        ]
+        "transform-react-jsx-source"
       ]
     }
   }

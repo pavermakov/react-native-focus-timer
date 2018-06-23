@@ -20,4 +20,5 @@ export default {
     cancelTimer: 'Aborted. IT happens, don\'t worry and try it again!',
   },
   progressLog: 'Fully completed cycles',
+  underConstruction: 'This page is under construction',
 };
