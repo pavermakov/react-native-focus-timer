@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { screens, constants, texts } from '../config';
+import { screens, constants, texts, sounds } from '../config';
 
 const initialState = {
   currentScreen: screens.timer,
@@ -10,6 +10,7 @@ const timerProps = {
   isReady: true,
   isRunning: false,
   isStopped: false,
+  isFinished: false,
   triggerIcon: constants.TRIGGER_ICONS.PLAY,
   timerTitle: texts.modes.focus.start,
   timerValue: constants.TIMERS_LENGTH.FOCUS,
@@ -20,7 +21,7 @@ const timerIntervalId = null;
 
 class Store extends Component {
   componentWillUnmount() {
-    this.clearTimer();
+    this.clearTimerInterval();
   }
 
   setCurrentScreen = (nextScreen) => {
@@ -43,19 +44,66 @@ class Store extends Component {
           isStopped: false,
         },
       };
-    }, this.initNextTimer);
+    }, this.initCurrentTimer);
   };
 
-  initNextTimer = () => {
+  initCurrentTimer = () => {
     this.setState((prevState) => {
       return {
         timerProps: {
           ...prevState.timerProps,
-          timerTitle: this.getNextTimerTitle(),
-          timerValue: this.getNextTimerValue(),
+          ...this.getDefaultTimerData(),
         },
       };
     });
+  };
+
+  getDefaultTimerData = () => {
+    let timerTitle = '';
+    let timerValue = 0;
+
+    const { currentMode } = this.state.timerProps;
+    const { FOCUS, SHORT_BREAK, LONG_BREAK, STOP_WATCH } = constants.TIMER_MODES;
+
+    switch (currentMode) {
+      case FOCUS:
+        timerTitle = texts.modes.focus.start;
+        timerValue = constants.TIMERS_LENGTH.FOCUS;
+        break;
+
+      case SHORT_BREAK:
+        timerTitle = texts.modes.shortBreak.start;
+        timerValue = constants.TIMERS_LENGTH.SHORT_BREAK;
+        break;
+
+      case LONG_BREAK:
+        timerTitle = texts.modes.longBreak.start;
+        timerValue = constants.TIMERS_LENGTH.LONG_BREAK;
+        break;
+
+      case STOP_WATCH:
+        timerTitle = texts.modes.stopWatch.start;
+        timerValue = constants.TIMERS_LENGTH.STOP_WATCH;
+        break;
+    }
+
+    return { timerTitle, timerValue };
+  };
+
+  getDefaultTimerTitle = () => {
+    const { currentMode } = this.state.timerProps;
+    const { FOCUS, SHORT_BREAK, LONG_BREAK, STOP_WATCH } = constants.TIMER_MODES;
+
+    switch (currentMode) {
+      case FOCUS:
+        return texts.modes.focus.start;
+      case SHORT_BREAK:
+        return texts.modes.shortBreak.start;
+      case LONG_BREAK:
+        return texts.modes.longBreak.start;
+      case STOP_WATCH:
+        return texts.modes.stopWatch.start;
+    }
   };
 
   getNextTimerTitle = () => {
@@ -104,7 +152,7 @@ class Store extends Component {
       }
 
       if (isRunning) {
-        return texts.modes.stopWatch.finish;
+        return texts.modes.finishTimer;
       }
 
       return texts.modes.stopWatch.start;
@@ -136,6 +184,7 @@ class Store extends Component {
     const { isReady, isRunning, isStopped } = this.state.timerProps;
     const { PLAY, STOP, RESTART } = constants.TRIGGER_ICONS;
     const nextTitle = this.getNextTimerTitle();
+    const nextValue = this.getNextTimerValue();
 
     if (isReady) {
       this.setState((prevState) => {
@@ -147,6 +196,7 @@ class Store extends Component {
             isStopped: false,
             triggerIcon: STOP,
             timerTitle: nextTitle,
+            timerValue: nextValue,
           },
         };
       }, this.startTimer);
@@ -166,7 +216,7 @@ class Store extends Component {
             timerTitle: nextTitle,
           },
         };
-      }, this.clearTimer);
+      }, this.clearTimerInterval);
 
       return;
     }
@@ -181,16 +231,17 @@ class Store extends Component {
             isStopped: false,
             triggerIcon: PLAY,
             timerTitle: nextTitle,
+            timerValue: nextValue,
           },
         };
-      }, this.initNextTimer);
+      }, this.initCurrentTimer);
 
       return;
     }
   };
 
   startTimer = () => {
-    this.clearTimer();
+    this.clearTimerInterval();
     timerIntervalId = setInterval(this.tickTimer, constants.ONE_SECOND);
   };
 
@@ -213,25 +264,29 @@ class Store extends Component {
       return;
     }
 
-    this.clearTimer();
+    this.finishTimer();
+  };
 
-    // if accidentally went below 0, set it to 0
+  finishTimer = () => {
+    this.clearTimerInterval();
+    sounds.bell && sounds.bell.play();
+
     this.setState((prevState) => {
       return {
         timerProps: {
           ...prevState.timerProps,
+          isReady: false,
+          isRunning: false,
+          isStopped: true,
+          triggerIcon: constants.TRIGGER_ICONS.STOP,
           timerValue: 0,
+          timerTitle: texts.modes.finishTimer,
         },
       };
-    }, this.finishTimer);
+    });
   };
 
-  finishTimer = () => {
-    // make a noise
-    this.setNextTriggerState();
-  };
-
-  clearTimer = () => {
+  clearTimerInterval = () => {
     clearInterval(timerIntervalId);
   };
 
