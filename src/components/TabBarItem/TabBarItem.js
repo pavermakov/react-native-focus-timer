@@ -3,10 +3,10 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import s from './TabBarItem.styles';
 
-const TabBarItem = ({ iconType, iconSize = 25, displayText, isLarge = false, onPress }) => {
+const TabBarItem = ({ iconType, iconSize = 25, displayText, isActive = false, onPress }) => {
   const containerStyles = [s.container];
 
-  if (isLarge) {
+  if (isActive) {
     containerStyles.push(s.containerLarge);
   }
 
