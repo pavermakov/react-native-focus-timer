@@ -4,9 +4,45 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon20x20@2x.png</key>
+		<data>
+		knWIhxg3BeuFCV91aCJiosQESnQ=
+		</data>
+		<key>AppIcon20x20@3x.png</key>
+		<data>
+		LuZszOgVob4RmdGG8YCvmTgYq3I=
+		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		r6J8E0RMICCoTQzTD2cISQ8VSH0=
+		</data>
+		<key>AppIcon29x29@3x.png</key>
+		<data>
+		/1T+Th9oyQ5wo1vpowMGdPaGrow=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		A8QNluSKT4qiB9utKo0nGcJmrak=
+		</data>
+		<key>AppIcon40x40@3x.png</key>
+		<data>
+		qGBNgPjmS/3DeRPeIeXCOgVdXyE=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		qGBNgPjmS/3DeRPeIeXCOgVdXyE=
+		</data>
+		<key>AppIcon60x60@3x.png</key>
+		<data>
+		K8EFaDiMD3k1aYYxPhYy53Fciz0=
+		</data>
+		<key>Assets.car</key>
+		<data>
+		wt1OcryAQIy0vnsDg19ne4eRISQ=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		pp4jxhge7AnAYU25QzE7TdNoycM=
+		6QKzG0ilDTf3+shiysLJkcCRqHY=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -71,7 +107,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Bayfo14d0iDfsgYbXbR7omvANFM=
+		J9wvySnJrqkxByBHUZu4s668Ij0=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -111,7 +147,7 @@
 		</data>
 		<key>PlugIns/reactnativefocustimerTests.xctest/reactnativefocustimerTests</key>
 		<data>
-		bxgQJI1ftmEuVdor4j9vWmjIZu0=
+		OR4e4kYbGiF2QpDB6cfGoTG9jkE=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -128,15 +164,114 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon20x20@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			knWIhxg3BeuFCV91aCJiosQESnQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			o1dHjM5SZ2sMNCxKADL2lA2+0mCrQhja8gIohtn78us=
+			</data>
+		</dict>
+		<key>AppIcon20x20@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LuZszOgVob4RmdGG8YCvmTgYq3I=
+			</data>
+			<key>hash2</key>
+			<data>
+			T2oAiow991hl2CeUWtku4Qfhnh7hqWjOoTArpZfAZpc=
+			</data>
+		</dict>
+		<key>AppIcon29x29@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			r6J8E0RMICCoTQzTD2cISQ8VSH0=
+			</data>
+			<key>hash2</key>
+			<data>
+			Gtugcdb5eVkGC23qJ+6Xx+OdXMdV1G0mfEG1PXje5sg=
+			</data>
+		</dict>
+		<key>AppIcon29x29@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			/1T+Th9oyQ5wo1vpowMGdPaGrow=
+			</data>
+			<key>hash2</key>
+			<data>
+			AfCSUC+RJU/3/grj6u/E0C0RuprNqiOVXP4aKsHPxSk=
+			</data>
+		</dict>
+		<key>AppIcon40x40@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			A8QNluSKT4qiB9utKo0nGcJmrak=
+			</data>
+			<key>hash2</key>
+			<data>
+			piIkPsSpQGOwOJxm8eN9B+Cr1/dyJUiEPGoYasnGI9Y=
+			</data>
+		</dict>
+		<key>AppIcon40x40@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qGBNgPjmS/3DeRPeIeXCOgVdXyE=
+			</data>
+			<key>hash2</key>
+			<data>
+			vAVBdrfH/LwxexTPMyNRDNeVbTARCXeSVsp9kRZTMVk=
+			</data>
+		</dict>
+		<key>AppIcon60x60@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			qGBNgPjmS/3DeRPeIeXCOgVdXyE=
+			</data>
+			<key>hash2</key>
+			<data>
+			vAVBdrfH/LwxexTPMyNRDNeVbTARCXeSVsp9kRZTMVk=
+			</data>
+		</dict>
+		<key>AppIcon60x60@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			K8EFaDiMD3k1aYYxPhYy53Fciz0=
+			</data>
+			<key>hash2</key>
+			<data>
+			bERkSowka2CrxAz3cdNldmNSM59xearJI7DqB+0oKA0=
+			</data>
+		</dict>
+		<key>Assets.car</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wt1OcryAQIy0vnsDg19ne4eRISQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			h7XvY5xBImrLy3mCFKFpgLUGGe0ALgzZB+TYHJS6egk=
+			</data>
+		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pp4jxhge7AnAYU25QzE7TdNoycM=
+			6QKzG0ilDTf3+shiysLJkcCRqHY=
 			</data>
 			<key>hash2</key>
 			<data>
-			dGO1ecIPBLoLdFkRqdfftBEximfDpLpy2cZ27u6hvak=
+			PSgFbhubeCQkcMEdIW3EdbLbOwnfbIqYARyYFhQ/c5g=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -387,11 +522,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bxgQJI1ftmEuVdor4j9vWmjIZu0=
+			OR4e4kYbGiF2QpDB6cfGoTG9jkE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qw9QcE/Z8q7H68k8fSrqYACKAeK+xOband+5AQnDRNk=
+			lT33wB/5vRUlK6tbdRests5NKzL1dbrGWg+mV5jkmTo=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>
